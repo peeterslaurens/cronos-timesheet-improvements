@@ -1,3 +1,48 @@
-/**
- * Place your custom CSS styles here.
- **/
+.timesheet-row {
+	-ms-flex: 0 0 40px;
+	flex: 0 0 40px;
+}
+.clipboardcontainer, .timesheet-code-container,
+.timesheet-code-days .day-hours-container .day-hours,
+.timesheet-code-total-container .circle-container,
+.timesheet-code-total-container .fixed-circle-block,
+.timesheet-code-total-container .circle-container,
+.timesheet-code-container-readonly,
+.timesheet-code-total-container .timesheet-code-total {
+	height: 40px;
+}
+.timesheet-code-days .day-hours-container .day-hours .hours-input {
+	height: 39px;
+}
+.timesheet-code-container .timesheet-code {
+	line-height: 40px;
+}
+.timesheet-code-total-container .timesheet-code-total {
+	line-height: 40px;
+}
+.timesheet-code-total-container .circle-container .circle {
+	min-height: 20px;
+}
+.timesheet-code-total-container .circle-container .circle .export-tscode,
+.timesheet-code-total-container .circle-container .circle .complete-timesheet,
+.timesheet-code-total-container .circle-container .circle .trashbin {
+	line-height: 20px;
+	height: 20px;
+}
+.timesheet-code-container .timesheet-code .timesheet-code-small,
+.timesheet-code-highlighted-container .timesheet-code-highlighted .timesheet-code-name-container .timesheet-code-name.timesheet-code-name-small,
+.timesheet-code-highlighted-container .timesheet-code-highlighted .timesheet-code-name-container .timesheet-code-description,
+.timesheet-code-highlighted-container .timesheet-code-hours,
+.timesheet-code-days .day-hours-container .day-hours .hours-input,
+.timesheet-code-days .day-hours-container .day-hours-extra .hours-input,
+.timesheet-code-total-container .timesheet-code-total,
+.timesheet-code-container-readonly .timesheet-code {
+	font-size: 12px;
+}
+.timesheet-complete {
+	float: left;
+}
+.header,
+.profileDropDownFlexer .profile {
+	height: 45px;
+}
