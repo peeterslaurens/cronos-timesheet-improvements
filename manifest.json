@@ -1,9 +1,9 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "Cronos Timesheet Extensions",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Updates the cronos timesheets to make them usable!",
+  "homepage_url": "https://timesheets.cronos.be",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -16,13 +16,11 @@
     ],
     "persistent": false
   },
-  "permissions": [
-    "https://timesheets.cronos.be"
-  ],
+  "permissions": [],
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://timesheets.cronos.be/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -30,7 +28,7 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://timesheets.cronos.be/*"
       ],
       "js": [
         "src/inject/inject.js"
