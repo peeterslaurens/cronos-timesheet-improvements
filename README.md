@@ -1,6 +1,6 @@
 # cronos-timesheet-chrome-extension
 
-## usage
+## features
 
-## todo
-
+* condensed layout
+* guard complete button
