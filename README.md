@@ -4,3 +4,4 @@
 
 * condensed layout
 * guard complete button
+* left and right arrow keys work now (as expected)
