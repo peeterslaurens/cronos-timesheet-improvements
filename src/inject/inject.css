@@ -66,6 +66,14 @@
 }
 
 /* add toggle-switch */
+.timesheet-complete .timesheet-complete-submit:disabled {
+	cursor: not-allowed !important;
+}
+.timesheet-complete .toggle-switch {
+	float: right;
+	margin: 29px 0px 0 40px;
+}
+
 .toggle-switch, .toggle-switch .toggle-knob {
 	-moz-transition: all 0.2s ease-in;
 	-webkit-transition: all 0.2s ease-in;
