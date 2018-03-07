@@ -11,12 +11,13 @@
   },
   "default_locale": "en",
   "background": {
-    "scripts": [
-      "src/bg/background.js"
-    ],
+    "scripts": ["src/bg/debugger.js", "src/bg/console.js", "eventPage.js"],
     "persistent": false
   },
   "permissions": [],
+  "browser_action": {
+      "default_title": "Click Me"
+  },
   "content_scripts": [
     {
       "matches": [
