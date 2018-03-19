@@ -17,6 +17,10 @@ chrome.extension.sendMessage({}, function(response) {
 			document.onkeydown = checkKey;
 
 			GuardCompleteButton();
+
+			setDefaultWildcards();
+
+			makeMonthtlyTotalsClickable();
 		}
 	}, 10);
 
@@ -90,6 +94,38 @@ chrome.extension.sendMessage({}, function(response) {
 
 	function setActivity(el, active) {
 		return el.classList.toggle('active', !!active);
+	}
+
+	function setDefaultWildcards() {
+		document.getElementsByClassName('react-autosuggest__input')[0].value = "%%";
+	}
+
+	function makeMonthtlyTotalsClickable() {
+
+		var totals = document.querySelectorAll('.timesheet-code-total');
+
+		for (let i = 0; i < totals.length; i++) {
+			totals[i].addEventListener("click", function(){
+				copyTextToClipBoard(totals[i].innerHTML);
+			}, false);
+		}
+
+	}
+
+	function copyTextToClipBoard(text) {
+		try{
+			navigator.clipboard.writeText(text || "<3 Cronos")
+			.then(() => {
+			})
+			.catch(err => {
+				// This can happen if the user denies clipboard permissions:
+				console.error('Could not copy text: ', err);
+			});
+		}
+		catch(err) {
+			console.warn("Clipboard API not supported in your version of chrome!");
+			
+		}
 	}
 
 	function GuardCompleteButton() {
