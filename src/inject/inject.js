@@ -21,6 +21,8 @@ chrome.extension.sendMessage({}, function(response) {
 			setDefaultWildcards();
 
 			makeMonthtlyTotalsClickable();
+
+			calculateBetween();
 		}
 	}, 10);
 
@@ -94,6 +96,69 @@ chrome.extension.sendMessage({}, function(response) {
 
 	function setActivity(el, active) {
 		return el.classList.toggle('active', !!active);
+	}
+
+	function calculateBetween() {
+		var hours = document.querySelectorAll('.day-hours-container');
+
+		var firstEl;
+		var firstElev;
+		var secondEl;
+
+		function selectEl(el, elev) {
+			if (!firstEl) {
+				firstEl = el;
+				firstElev = elev;
+				el.classList.add("selectedDay");
+			} else {
+				if (elev.x <= firstElev.x) {
+					return;
+				}
+				secondEl = el;
+			}
+			el.classList.add("selectedDay");
+
+			if (firstEl && secondEl) {
+				var nextEl = firstEl;
+				var elements = 0;
+                var i = 0;
+
+				while (i <= 31) {
+
+					if (nextEl === secondEl) {
+							
+						elements = elements + parseFloat(secondEl.getElementsByTagName('input')[0].value);
+						i = 31;
+					}
+					else {
+						
+						elements = elements + parseFloat(nextEl.getElementsByTagName('input')[0].value);
+						nextEl = nextEl.nextSibling;						
+					}
+					i++;
+				}
+
+				copyTextToClipBoard(elements)
+
+				setTimeout(function(){
+					firstEl.classList.remove("selectedDay");
+					firstEl = undefined;
+					firstElev = undefined;
+					secondEl.classList.remove("selectedDay");
+					secondEl = undefined;
+				}, 600);
+			}
+		}
+
+		for (let i = 0; i < hours.length; i++) {
+			hours[i].addEventListener("click", function(e){
+				
+				if(e.metaKey){
+					selectEl(hours[i], e);
+				} else {
+				}
+			}, false);
+		}
 	}
 
 	function setDefaultWildcards() {
